@@ -1,0 +1,42 @@
+<!-- create html with input -->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Crusader King III Playset Generator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+        integrity="sha512-wnea99uKIC3TJF7v4eKk4Y+lMz2Mklv18+r4na2Gn1abDRPPOeef95xTzdwGD9e6zXJBteMIhZ1+68QC5byJZw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script defer src="https://unpkg.com/alpinejs@3.9.0/dist/cdn.min.js"></script>
+</head>
+
+<body class="my-auto w-full">
+    <div class="container w-full md:max-w-3xl mx-auto flex flex-col min-h-screen">
+        <a href="/" class="flex justify-center p-4 md:p-0 mt-10 md:mt-4">
+            <img class="rounded-full" src="https://github.com/iniznet/https://github.com/iniznet/CK3PlaysetGen/raw/master/src/img/ck3.png" alt="Crusader Kings 3 Cover">
+        </a>
+
+        <div class="flex-grow">
+            <div class="pt-0 pb-5 md:pt-10 md:pb-5 mx-4">
+                <form action="/search" method="GET">
+                    <div class="bg-white flex items-center rounded-lg shadow-md md:shadow-xl">
+                        <input autofocus="" placeholder="Playset URL..." type="search" name="q" class="rounded-l-full w-full py-4 px-6 text-gray-700 leading-tight focus:outline-none" id="search">
+                        <div class="p-2">
+                            <button class="rounded-full focus:outline-none w-10 h-12 md:w-10 md:h-12 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                    <path xmlns="http://www.w3.org/2000/svg" d="M460.54,169.58A222.6,222.6,0,1,0,478,256,221.16,221.16,0,0,0,460.54,169.58ZM256,448C150,448,64,362,64,256S150,64,256,64s192,86,192,192S362,448,256,448Zm28.06-307.33L399.39,256,284.06,371.33l-21.21-21.21L342,271H133.82V241H342l-79.12-79.12Z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="flex justify-center mt-4">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
