@@ -7,23 +7,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
         integrity="sha512-wnea99uKIC3TJF7v4eKk4Y+lMz2Mklv18+r4na2Gn1abDRPPOeef95xTzdwGD9e6zXJBteMIhZ1+68QC5byJZw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script defer src="https://unpkg.com/alpinejs@3.9.0/dist/cdn.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@ryangjchandler/alpine-clipboard@2.x.x/dist/alpine-clipboard.js" defer></script>
+    <script defer src="https://unpkg.com/alpinejs@3.9.0/dist/cdn.min.js"></script>
 </head>
 <body class="my-auto w-full">
     <div class="container w-full md:max-w-3xl mx-auto flex flex-col min-h-screen my-2">
-        <a href="/" class="flex justify-center p-4 md:p-0">
+        <a href="/CK3PlaysetGen" class="flex justify-center p-4 md:p-0">
             <img class="object-cover object-top h-72 rounded w-full"
                 src="https://github.com/iniznet/CK3PlaysetGen/raw/master/src/img/ck3.jpg" alt="Crusader Kings 3 Cover">
         </a>
 
         <div x-data="{ value: '', url: '' }" class="flex-grow">
             <div class="pt-0 pb-5 md:pt-10 md:pb-5 mx-4">
-                <form action="/search" method="GET">
+                <form method="GET">
                     <div class="bg-white flex items-center rounded-lg shadow-md md:shadow-xl">
-                        <input autofocus="" placeholder="Playset URL..." type="search" name="q"
+                        <input placeholder="Playset URL..." type="search" name="url"
                             class="rounded-l-full w-full py-4 px-6 text-gray-700 leading-tight focus:outline-none"
-                            id="search"
+                            autofocus
                             x-model="url">
                         <div class="p-2 md:px-4">
                             <button
@@ -49,8 +49,10 @@
 </body>
 <script>
     function generator(url) {
+        let data = document.querySelector('[x-data]')._x_dataStack[0];
+
         // check if input is a url with regex
-        if ( !isValidURL( url ) ) {
+        if ( !isValidURL( url ) && !data ) {
             console.log('invalid url');
             return;
         }
@@ -90,6 +92,8 @@
                     console.log('no mods found');
                     return;
                 }
+
+                data.value = JSON.stringify(json);
 
                 const a = document.createElement("a");
                 a.href = URL.createObjectURL(new Blob([JSON.stringify(json, null, 2)], {
