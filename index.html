@@ -54,6 +54,7 @@
             return;
         }
 
+        const apiHost = 'http://cors.niznet.my.id/';
         let playsetName = "Playset #" + Math.floor(Math.random() * 1000);
         let json = {
             "game": "ck3",
@@ -61,7 +62,12 @@
             "mods": []
         }
 
-        fetch( url )
+        fetch( apiHost + url, {
+            headers: {
+                'origin': window.location.protocol + '//' + window.location.host,
+                'x-requested-with': 'CK3PlaysetGen'
+            }
+        } )
             .then( res => res.text() )
             .then( text => {
                 let parser = new DOMParser();
