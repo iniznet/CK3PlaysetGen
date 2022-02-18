@@ -8,6 +8,7 @@
         integrity="sha512-wnea99uKIC3TJF7v4eKk4Y+lMz2Mklv18+r4na2Gn1abDRPPOeef95xTzdwGD9e6zXJBteMIhZ1+68QC5byJZw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script defer src="https://unpkg.com/alpinejs@3.9.0/dist/cdn.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@ryangjchandler/alpine-clipboard@2.x.x/dist/alpine-clipboard.js" defer></script>
 </head>
 <body class="my-auto w-full">
     <div class="container w-full md:max-w-3xl mx-auto flex flex-col min-h-screen my-2">
@@ -41,7 +42,7 @@
             <div class="flex mt-4 flex-grow">
                 <textarea class="mx-4 bg-gray-100 rounded-br-lg w-full"
                     rows="6"
-                    @click="copy(this.value)"></textarea>
+                    @click="$clipboard(value)" x-model="value"></textarea>
             </div>
         </div>
     </div>
