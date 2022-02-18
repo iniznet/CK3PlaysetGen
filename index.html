@@ -93,7 +93,7 @@
                     return;
                 }
 
-                data.value = JSON.stringify(json);
+                data.value = json;
 
                 const a = document.createElement("a");
                 a.href = URL.createObjectURL(new Blob([JSON.stringify(json, null, 2)], {
